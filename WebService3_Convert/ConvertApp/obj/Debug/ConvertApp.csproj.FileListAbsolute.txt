@@ -1,0 +1,10 @@
+C:\Users\0138429\source\repos\WebServices\WebService3\ConvertApp\obj\Debug\ConvertApp.csproj.AssemblyReference.cache
+C:\Users\0138429\source\repos\WebServices\WebService3\ConvertApp\obj\Debug\ConvertApp.Form1.resources
+C:\Users\0138429\source\repos\WebServices\WebService3\ConvertApp\obj\Debug\ConvertApp.Properties.Resources.resources
+C:\Users\0138429\source\repos\WebServices\WebService3\ConvertApp\obj\Debug\ConvertApp.csproj.GenerateResource.cache
+C:\Users\0138429\source\repos\WebServices\WebService3\ConvertApp\obj\Debug\ConvertApp.csproj.CoreCompileInputs.cache
+C:\Users\0138429\source\repos\WebServices\WebService3\ConvertApp\bin\Debug\ConvertApp.exe.config
+C:\Users\0138429\source\repos\WebServices\WebService3\ConvertApp\bin\Debug\ConvertApp.exe
+C:\Users\0138429\source\repos\WebServices\WebService3\ConvertApp\bin\Debug\ConvertApp.pdb
+C:\Users\0138429\source\repos\WebServices\WebService3\ConvertApp\obj\Debug\ConvertApp.exe
+C:\Users\0138429\source\repos\WebServices\WebService3\ConvertApp\obj\Debug\ConvertApp.pdb

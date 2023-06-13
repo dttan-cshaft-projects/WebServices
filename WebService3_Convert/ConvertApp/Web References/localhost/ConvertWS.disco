@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://localhost:44340/ConvertWS.asmx?wsdl" docRef="https://localhost:44340/ConvertWS.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://localhost:44340/ConvertWS.asmx" xmlns:q1="https://localhost:44340" binding="q1:Currency_x005F_x0020_ConversionSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://localhost:44340/ConvertWS.asmx" xmlns:q2="https://localhost:44340" binding="q2:Currency_x005F_x0020_ConversionSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

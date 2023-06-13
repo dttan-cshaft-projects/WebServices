@@ -1,0 +1,13 @@
+C:\Users\0138429\source\repos\WebServices\WebService4_DataTable\DataTableApp\bin\Debug\DataTableApp.exe.config
+C:\Users\0138429\source\repos\WebServices\WebService4_DataTable\DataTableApp\bin\Debug\DataTableApp.exe
+C:\Users\0138429\source\repos\WebServices\WebService4_DataTable\DataTableApp\bin\Debug\DataTableApp.pdb
+C:\Users\0138429\source\repos\WebServices\WebService4_DataTable\DataTableApp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\0138429\source\repos\WebServices\WebService4_DataTable\DataTableApp\bin\Debug\Newtonsoft.Json.xml
+C:\Users\0138429\source\repos\WebServices\WebService4_DataTable\DataTableApp\obj\Debug\DataTableApp.csproj.AssemblyReference.cache
+C:\Users\0138429\source\repos\WebServices\WebService4_DataTable\DataTableApp\obj\Debug\DataTableApp.Form1.resources
+C:\Users\0138429\source\repos\WebServices\WebService4_DataTable\DataTableApp\obj\Debug\DataTableApp.Properties.Resources.resources
+C:\Users\0138429\source\repos\WebServices\WebService4_DataTable\DataTableApp\obj\Debug\DataTableApp.csproj.GenerateResource.cache
+C:\Users\0138429\source\repos\WebServices\WebService4_DataTable\DataTableApp\obj\Debug\DataTableApp.csproj.CoreCompileInputs.cache
+C:\Users\0138429\source\repos\WebServices\WebService4_DataTable\DataTableApp\obj\Debug\DataTableApp.csproj.CopyComplete
+C:\Users\0138429\source\repos\WebServices\WebService4_DataTable\DataTableApp\obj\Debug\DataTableApp.exe
+C:\Users\0138429\source\repos\WebServices\WebService4_DataTable\DataTableApp\obj\Debug\DataTableApp.pdb
