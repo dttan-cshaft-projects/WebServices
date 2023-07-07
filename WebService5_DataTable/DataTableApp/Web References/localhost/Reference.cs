@@ -29,7 +29,13 @@ namespace DataTableApp.localhost {
     [System.Web.Services.WebServiceBindingAttribute(Name="Students ManagementSoap", Namespace="https://localhost:44366")]
     public partial class StudentsManagement : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
+        private System.Threading.SendOrPostCallback DataStructOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DataDefaultOperationCompleted;
+        
         private System.Threading.SendOrPostCallback StudentsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AddNewRowOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -70,7 +76,68 @@ namespace DataTableApp.localhost {
         }
         
         /// <remarks/>
+        public event DataStructCompletedEventHandler DataStructCompleted;
+        
+        /// <remarks/>
+        public event DataDefaultCompletedEventHandler DataDefaultCompleted;
+        
+        /// <remarks/>
         public event StudentsCompletedEventHandler StudentsCompleted;
+        
+        /// <remarks/>
+        public event AddNewRowCompletedEventHandler AddNewRowCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("https://localhost:44366/DataStruct", RequestNamespace="https://localhost:44366", ResponseNamespace="https://localhost:44366", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void DataStruct() {
+            this.Invoke("DataStruct", new object[0]);
+        }
+        
+        /// <remarks/>
+        public void DataStructAsync() {
+            this.DataStructAsync(null);
+        }
+        
+        /// <remarks/>
+        public void DataStructAsync(object userState) {
+            if ((this.DataStructOperationCompleted == null)) {
+                this.DataStructOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDataStructOperationCompleted);
+            }
+            this.InvokeAsync("DataStruct", new object[0], this.DataStructOperationCompleted, userState);
+        }
+        
+        private void OnDataStructOperationCompleted(object arg) {
+            if ((this.DataStructCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DataStructCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("https://localhost:44366/DataDefault", RequestNamespace="https://localhost:44366", ResponseNamespace="https://localhost:44366", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void DataDefault() {
+            this.Invoke("DataDefault", new object[0]);
+        }
+        
+        /// <remarks/>
+        public void DataDefaultAsync() {
+            this.DataDefaultAsync(null);
+        }
+        
+        /// <remarks/>
+        public void DataDefaultAsync(object userState) {
+            if ((this.DataDefaultOperationCompleted == null)) {
+                this.DataDefaultOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDataDefaultOperationCompleted);
+            }
+            this.InvokeAsync("DataDefault", new object[0], this.DataDefaultOperationCompleted, userState);
+        }
+        
+        private void OnDataDefaultOperationCompleted(object arg) {
+            if ((this.DataDefaultCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DataDefaultCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("https://localhost:44366/Students", RequestNamespace="https://localhost:44366", ResponseNamespace="https://localhost:44366", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -100,6 +167,35 @@ namespace DataTableApp.localhost {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("https://localhost:44366/AddNewRow", RequestNamespace="https://localhost:44366", ResponseNamespace="https://localhost:44366", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string AddNewRow(string dataString) {
+            object[] results = this.Invoke("AddNewRow", new object[] {
+                        dataString});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AddNewRowAsync(string dataString) {
+            this.AddNewRowAsync(dataString, null);
+        }
+        
+        /// <remarks/>
+        public void AddNewRowAsync(string dataString, object userState) {
+            if ((this.AddNewRowOperationCompleted == null)) {
+                this.AddNewRowOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddNewRowOperationCompleted);
+            }
+            this.InvokeAsync("AddNewRow", new object[] {
+                        dataString}, this.AddNewRowOperationCompleted, userState);
+        }
+        
+        private void OnAddNewRowOperationCompleted(object arg) {
+            if ((this.AddNewRowCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AddNewRowCompleted(this, new AddNewRowCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -120,6 +216,14 @@ namespace DataTableApp.localhost {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void DataStructCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void DataDefaultCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void StudentsCompletedEventHandler(object sender, StudentsCompletedEventArgs e);
     
     /// <remarks/>
@@ -131,6 +235,32 @@ namespace DataTableApp.localhost {
         private object[] results;
         
         internal StudentsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void AddNewRowCompletedEventHandler(object sender, AddNewRowCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AddNewRowCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AddNewRowCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

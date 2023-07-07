@@ -3,6 +3,18 @@
   <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is The Students Management Web Service</wsdl:documentation>
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="https://localhost:44366">
+      <s:element name="DataStruct">
+        <s:complexType />
+      </s:element>
+      <s:element name="DataStructResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DataDefault">
+        <s:complexType />
+      </s:element>
+      <s:element name="DataDefaultResponse">
+        <s:complexType />
+      </s:element>
       <s:element name="Students">
         <s:complexType />
       </s:element>
@@ -13,24 +25,95 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="AddNewRow">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewRowResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddNewRowResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="DataStructSoapIn">
+    <wsdl:part name="parameters" element="tns:DataStruct" />
+  </wsdl:message>
+  <wsdl:message name="DataStructSoapOut">
+    <wsdl:part name="parameters" element="tns:DataStructResponse" />
+  </wsdl:message>
+  <wsdl:message name="DataDefaultSoapIn">
+    <wsdl:part name="parameters" element="tns:DataDefault" />
+  </wsdl:message>
+  <wsdl:message name="DataDefaultSoapOut">
+    <wsdl:part name="parameters" element="tns:DataDefaultResponse" />
+  </wsdl:message>
   <wsdl:message name="StudentsSoapIn">
     <wsdl:part name="parameters" element="tns:Students" />
   </wsdl:message>
   <wsdl:message name="StudentsSoapOut">
     <wsdl:part name="parameters" element="tns:StudentsResponse" />
   </wsdl:message>
+  <wsdl:message name="AddNewRowSoapIn">
+    <wsdl:part name="parameters" element="tns:AddNewRow" />
+  </wsdl:message>
+  <wsdl:message name="AddNewRowSoapOut">
+    <wsdl:part name="parameters" element="tns:AddNewRowResponse" />
+  </wsdl:message>
   <wsdl:portType name="Students_x0020_ManagementSoap">
+    <wsdl:operation name="DataStruct">
+      <wsdl:input message="tns:DataStructSoapIn" />
+      <wsdl:output message="tns:DataStructSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DataDefault">
+      <wsdl:input message="tns:DataDefaultSoapIn" />
+      <wsdl:output message="tns:DataDefaultSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="Students">
       <wsdl:input message="tns:StudentsSoapIn" />
       <wsdl:output message="tns:StudentsSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="AddNewRow">
+      <wsdl:input message="tns:AddNewRowSoapIn" />
+      <wsdl:output message="tns:AddNewRowSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="Students_x0020_ManagementSoap" type="tns:Students_x0020_ManagementSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DataStruct">
+      <soap:operation soapAction="https://localhost:44366/DataStruct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DataDefault">
+      <soap:operation soapAction="https://localhost:44366/DataDefault" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Students">
       <soap:operation soapAction="https://localhost:44366/Students" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewRow">
+      <soap:operation soapAction="https://localhost:44366/AddNewRow" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -41,8 +124,35 @@
   </wsdl:binding>
   <wsdl:binding name="Students_x0020_ManagementSoap12" type="tns:Students_x0020_ManagementSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DataStruct">
+      <soap12:operation soapAction="https://localhost:44366/DataStruct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DataDefault">
+      <soap12:operation soapAction="https://localhost:44366/DataDefault" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Students">
       <soap12:operation soapAction="https://localhost:44366/Students" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewRow">
+      <soap12:operation soapAction="https://localhost:44366/AddNewRow" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

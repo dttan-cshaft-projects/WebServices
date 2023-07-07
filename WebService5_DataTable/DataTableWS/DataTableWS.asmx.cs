@@ -18,11 +18,12 @@ namespace DataTableWS
     // [System.Web.Script.Services.ScriptService]
     public class DataTableWS : System.Web.Services.WebService
     {
-        
+
         DataTable dtStudents = new DataTable();
+        private bool check = false;
 
         [WebMethod]
-        public string Students()
+        public void DataStruct()
         {
             dtStudents.Columns.Add("ID");
             dtStudents.Columns.Add("FirstName");
@@ -30,14 +31,54 @@ namespace DataTableWS
             dtStudents.Columns.Add("Age");
             dtStudents.Columns.Add("Class");
             dtStudents.Columns.Add("Course");
+        }
 
-            dtStudents.Rows.Add("ST00001", "Tan", "Doan Thanh", "20", "D2201M1", "2021");
-            dtStudents.Rows.Add("ST00002", "Truong", "Hoang Le Quoc", "19", "D2201M1", "2021");
-            dtStudents.Rows.Add("ST00005", "Quoc", "Nguyen Van", "19", "D2202F2", "2022");
-            dtStudents.Rows.Add("ST00006", "Anh", "Vu Quoc", "18", "D2202E6", "2023");
-            dtStudents.Rows.Add("ST00007", "Binh", "Nguyen Thai", "18", "D2202E6", "2023");
-            dtStudents.Rows.Add("ST00008", "Thao", "Le Da", "18", "D2202U1", "2023");
+        [WebMethod]
+        public void DataDefault()
+        {
+            dtStudents.Rows.Add("1", "Tan", "Doan Thanh", "20", "D2201M1", "2021");
+            dtStudents.Rows.Add("2", "Truong", "Hoang Le Quoc", "19", "D2201M1", "2021");
+            dtStudents.Rows.Add("3", "Quoc", "Nguyen Van", "19", "D2202F2", "2022");
+            dtStudents.Rows.Add("4", "Anh", "Vu Quoc", "18", "D2202E6", "2023");
+            dtStudents.Rows.Add("5", "Binh", "Nguyen Thai", "18", "D2202E6", "2023");
+            dtStudents.Rows.Add("6", "Thao", "Le Da", "18", "D2202U1", "2023");
+        }
+
+        [WebMethod]
+        public string Students()
+        {
+            if (!check)
+            {
+                DataStruct();
+                DataDefault();
+            } else
+            {
+
+            }
             
+            return JsonConvert.SerializeObject(dtStudents);
+
+        }
+
+        [WebMethod]
+        public string AddNewRow(string dataString)
+        {
+            
+            //tach tach tu dau :
+            string[] dataArray = dataString.Split(':');
+
+            //create 1 row
+            DataRow row = dtStudents.NewRow();
+            row["ID"] = dataArray[0];
+            row["FirstName"] = dataArray[1];
+            row["LastName"] = dataArray[2];
+            row["Age"] = dataArray[3];
+            row["Class"] = dataArray[4];
+            row["Course"] = dataArray[5];
+
+            //add to datatable
+            dtStudents.Rows.Add(row);
+            check = true;
 
             return JsonConvert.SerializeObject(dtStudents);
 
